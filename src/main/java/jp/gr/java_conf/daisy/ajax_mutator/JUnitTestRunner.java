@@ -48,6 +48,10 @@ public class JUnitTestRunner extends ParentRunner<FrameworkMethod> {
                     reporter = new RunNotifierFailureReporter(notifier);
                     lastNotifier = notifier;
                 }
+            } else {
+            	if(reporter == null) {
+                    reporter = new RunNotifierFailureReporter(notifier);
+            	}
             }
             runLeaf(methodBlock(method), description, reporter);
         }
